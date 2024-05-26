@@ -1,10 +1,11 @@
 from flask import Flask, render_template, Response, request
+from flask_mysqldb import MySQL
 import cv2
-import datetime, time
+from datetime import date, datetime
 import os, sys
 import numpy as np
 from threading import Thread
-import fnmatch
+import fnmatch, time
 
 global capture, rec_frame, out
 capture=0
@@ -18,8 +19,18 @@ except OSError as error:
 #Load pretrained face detection model    
 net = cv2.dnn.readNetFromCaffe('./saved_model/deploy.prototxt.txt', './saved_model/res10_300x300_ssd_iter_140000.caffemodel')
 
+# Muat model
+model = load_model('/model/Model_Face_Recognition.h5')
+
 #instatiate flask app  
 app = Flask(__name__, template_folder='./templates')
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'pegawai'
+ 
+mysql = MySQL(app)
 
 camera = cv2.VideoCapture(0)
 
@@ -56,7 +67,7 @@ def detect_face(frame):
  
 
 def gen_frames():  # generate frame by frame from camera
-    global out, capture, rec_frame
+    global out, capture, rec_frame, result
     while True:
         success, frame = camera.read() 
         if success:
@@ -64,7 +75,17 @@ def gen_frames():  # generate frame by frame from camera
                 capture=0
                 frame= detect_face(frame)
                 p = os.path.sep.join(['static', data])
-                check = cv2.imwrite(p, frame)
+                cv2.imwrite(p, frame)
+
+                # Panggil salah satu data 
+                test_image=image.load_img(data,target_size=(150, 150))
+                test_image=image.img_to_array(test_image)
+
+                # Prediksi kelas
+                test_image=np.expand_dims(test_image,axis=0)
+                result=model.predict(test_image,verbose=0)
+
+                check=True
             try:
                 ret, buffer = cv2.imencode('.jpg', cv2.flip(frame,1))
                 frame = buffer.tobytes()
@@ -87,17 +108,30 @@ def video_feed():
 
 @app.route('/requests',methods=['POST','GET'])
 def tasks():
-    global switch,camera,data,check
+    global switch,camera,data,check,id_pegawai
     if request.method == 'POST':
         if request.form.get('click') == 'Presensi':
             global capture
-            now = datetime.datetime.now()
-            data = "shot_{}.png".format(str(now).replace(":",'.').replace(" ",'_'))
+            today = date.today()
+            tanggal_presensi = today.strftime("%Y-%m-%d")
+            now = datetime.now()
+            waktu_presensi = now.strftime("%H:%M:%S")
+            data = "presensi_{}.png".format(str(now).replace(":",'.').replace(" ",'_'))
             check=False
             capture=1
             while(check!=False):
                 pass
-            return render_template('absen.html', value=data)
+            cursor = mysql.connection.cursor()
+            cursor.execute(''' INSERT INTO presensi(id_pegawai, tanggal_presensi, waktu_presensi, berhasil_presensi) VALUES(%s,%s,%s,%s) ''',(id_pegawai,tanggal_presensi,waktu_presensi,1))
+            mysql.connection.commit()
+            cursor.close()
+            pegawai = {
+                'id_pegawai': id_pegawai,
+                'tanggal_presensi': tanggal_presensi,
+                'waktu_presensi': waktu_presensi,
+                'data': data
+            }
+            return render_template('absen.html', **pegawai)
 
         if request.form.get('presensi-ulang') == 'Presensi Ulang':
             os.remove('./static/'+data)
@@ -109,9 +143,8 @@ def tasks():
 
     return render_template('index.html')
 
-
 if __name__ == '__main__':
     app.run()
     
 camera.release()
-cv2.destroyAllWindows()     
+cv2.destroyAllWindows()

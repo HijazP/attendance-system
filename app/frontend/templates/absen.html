@@ -4,21 +4,18 @@
     <div class="row">
         <div class="col-lg-8  offset-lg-2">
 
-			
             <h2 class="mt-5">Sistem Presensi Pegawai</h2>
+			<h3 style="font-family:courier;">Data Pegawai:</h3>
+			<ol style="font-family:courier;">
+				<li>Id Pegawai: {{id_pegawai}}</li>
+				<li>Tanggal Presensi: {{tanggal_presensi}}</li>
+				<li>Waktu Presensi: {{waktu_presensi}}</li>
+				<li>Bukti Foto: </li>
+			</ol>	
 			<form method="post" action="{{ url_for('tasks') }}">
 				<input type="submit" value="Presensi Ulang" name="presensi-ulang" />
 			</form>
-            <img src="/static/{{value}}" height="80%">
-			<h3 style="font-family:courier;">Instructions:</h3>
-			<ol style="font-family:courier;">
-				<li>Stop/Start--Toggle between stop or start live streaming</li>
-				<li>Capture--Take still-shot and save in the 'shots' directory</li>
-				<li>Grey--Toggle between grayscale and RGB output</li>
-				<li>Negative--Toggle between negative and RGB output</li>
-				<li>Face Only--Shows just your face if present(Toggle on/off)</li> 
-				<li>Start/Stop Recording--Toggle between starting and stopping video recording</li> 
-			</ol>	
+            <img src="/static/{{data}}" height="80%">
 			
         </div>
     </div>
