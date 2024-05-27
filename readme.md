@@ -32,7 +32,17 @@ Lorem ipsum digidawu
     </h2>
 </div>
 
-L:orem ipsum
+1. Buka terminal
+2. Buka file _app_ -> template -> camera_flask_app.py
+3. Jalankan file tersebut dengan command "python .\camera_flask_app.py"
+4. Terlihat tampilan dari sistem berupa kamera untuk presensi
+![](./img/tes.jpg)
+5. Klik tombol presensi untuk menangkap foto presensi
+6. Setelah menekan tombol presensi, maka presensi berhasil dilakukan dengan menampilkan identitas pegawai serta bukti foto
+![](./img/tes2.jpg)
+7. Proses presensi berhasil dilakukan dan presensi bisa dilakukan kembali dengan menekan tombol "Presensi Ulang"
+8. Untuk keluar dari sistem, kembali ke terminal dan tekan tombol ctrl + C
+
 
 <div id="Model">
     <h2>
