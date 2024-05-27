@@ -1,5 +1,5 @@
-# Sistem Presensi Berbasis Face Recognition
-Projek ini merupakan sebuah sistem presensi yang menggunakan konsep face recognition. Sistem ini menangkap wajah karyawan sebagai bukti kehadiran.
+# Sistem Absensi Berbasis Face Recognition
+Projek ini merupakan sebuah sistem absensi yang menggunakan konsep face recognition. Sistem ini menangkap wajah karyawan sebagai bukti kehadiran.
 
 Projek ini bertujuan untuk mengembangkan sistem Face Recognition yang akan terintegrasi dengan sistem absensi yang sudah ada, sehingga memungkinkan pencatatan kehadiran karyawan secara otomatis saat wajah mereka terdeteksi.
 
@@ -40,6 +40,6 @@ L:orem ipsum
     </h2>
 </div>
 
-Pada sistem ini, model _face recognition_ dibangun menggunakan model _deep learning Convolutional Neural Network_ (CNN). Kode program dapat diakses [di sini](https://git-scm.com/downloads/guis). 
+Pada sistem ini, model _face recognition_ dibangun menggunakan model _deep learning Convolutional Neural Network_ (CNN). Kode program dapat diakses [di sini](https://github.com/HijazP/sistem-absensi-berbasis-face-recognition/blob/master/model/Face%20Recognition%20Using%20CNN.ipynb). 
 
-Data yang digunakan berupa gambar 17 orang yang diidentifikasi sebagai pegawai untuk sistem presensi yang sudah ada. Data latih model dapat diakses [di sini](https://git-scm.com/downloads/guis). 
+Data yang digunakan berupa gambar 18 orang yang diidentifikasi sebagai pegawai untuk sistem absensi yang sudah ada. Data latih model dapat diakses [di sini](https://github.com/HijazP/sistem-absensi-berbasis-face-recognition/tree/master/model/Face%20Images/Face%20Images/Final%20Training%20Images). 
