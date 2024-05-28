@@ -1,0 +1,49 @@
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+			<script>
+                function wait() {
+                    document.getElementById('wait').style.display = 'block'
+                }
+            </script>
+
+            <h2 class="mt-5">Sistem Presensi Pegawai</h2>
+			<h3 style="font-family:courier;">Untuk memasukan data pegawai baru, silahkan isi data dan unggah 7 foto dengan pose berbeda di bawah</h3>
+			<h3 style="font-family:courier;">Foto harus terlihat wajah di bagian tengah gambar</h3>
+			<form method="post" action="{{ url_for('tasks') }}" onsubmit="wait()" enctype="multipart/form-data">
+				<label for="nama">Nama: </label>
+				<input type="text" id="nama" name="nama" placeholder="Nama">
+				<br>
+				<label for="divisi">Divisi: </label>
+				<input type="text" id="divisi" name="divisi" placeholder="Divisi">
+				<br>
+				<label for="jabatan">Jabatan: </label>
+				<input type="text" id="jabatan" name="jabatan" placeholder="Jabatan">
+				<br>
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<input type="file" name="file">
+				<br>
+				<br>
+				<input type="submit" value="Halaman Presensi" name="halaman-presensi"/>
+                <input type="submit" value="Submit Pegawai Baru" name="submit_pegawai_baru"/>
+            </form>
+            <p id="wait" style="display: none;">Train data baru sedang diproses, mohon tunggu...</p>
+			
+        </div>
+    </div>
+</div>
+</body>

@@ -1,1 +1,3 @@
 test/
+pipeline/__pycache__
+*.h5
