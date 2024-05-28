@@ -86,4 +86,4 @@ def new_data():
     print('Total Training Time taken: ', round((Endtime - StartTime) / 60), 'Minutes')
     #######
     # Simpan model
-    Model.save('/model/Model_Face_Recognition.h5')
+    Model.save('model/Model_Face_Recognition.h5')

@@ -5,4 +5,4 @@ opencv-python
 tensorflow
 keras
 flask
-flask_mysqld
+flask_mysqldb
