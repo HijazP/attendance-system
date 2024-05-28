@@ -8,7 +8,7 @@ from tensorflow import keras
 from keras.callbacks import Callback, EarlyStopping
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPool2D, Flatten, Dense
-import time
+import time, os
 
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
@@ -86,6 +86,4 @@ def new_data():
     print('Total Training Time taken: ', round((Endtime - StartTime) / 60), 'Minutes')
     #######
     # Simpan model
-    Model.save('model/Model_Face_Recognition.h5')
-
-new_data()
+    Model.save('../model/Model_Face_Recognition.h5')

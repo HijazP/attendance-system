@@ -1,7 +1,7 @@
-# Sistem Absensi Berbasis Face Recognition
-Projek ini merupakan sebuah sistem absensi yang menggunakan konsep face recognition. Sistem ini menangkap wajah karyawan sebagai bukti kehadiran.
+# Sistem Presensi Berbasis Face Recognition
+Proyek ini merupakan sebuah sistem presensi yang menggunakan konsep _face recognition_. Sistem ini menangkap wajah pegawai sebagai bukti kehadiran.
 
-Projek ini bertujuan untuk mengembangkan sistem Face Recognition yang akan terintegrasi dengan sistem absensi yang sudah ada, sehingga memungkinkan pencatatan kehadiran karyawan secara otomatis saat wajah mereka terdeteksi.
+Proyek ini bertujuan untuk mengembangkan sistem _Face Recognition_ yang akan terintegrasi dengan sistem presensi yang sudah ada, sehingga memungkinkan pencatatan kehadiran pegawai secara otomatis saat wajah mereka terdeteksi.
 
 <div id="tabel-konten">
     <h2> Tabel konten </h2>
@@ -24,7 +24,13 @@ Projek ini bertujuan untuk mengembangkan sistem Face Recognition yang akan terin
     </h2>
 </div>
 
-Lorem ipsum digidawu
+Hal yang perlu dipersiapkan:
+
+1. Python versi 3.10 ke atas. [Cara Memasang Python](https://wiki.python.org/moin/BeginnersGuide/Download)
+2. Library tambahan, pasang dengan cara mengetik perintah `pip install -r requirements.txt` di terminal di mana direktori file `requirements.txt` berada
+3. Basis data MySQL versi 8, _import_ basis data dari direktori `db`
+4. Untuk menggunakan basis data, bisa menggunakan XAMPP atau Laragon atau WAMP
+
 
 <div id="Penggunaan">
     <h2>
@@ -33,15 +39,18 @@ Lorem ipsum digidawu
 </div>
 
 1. Buka terminal
-2. Buka file _app_ -> template -> camera_flask_app.py
-3. Jalankan file tersebut dengan command "python .\camera_flask_app.py"
-4. Terlihat tampilan dari sistem berupa kamera untuk presensi
-![](./img/tes.jpg)
-5. Klik tombol presensi untuk menangkap foto presensi
-6. Setelah menekan tombol presensi, maka presensi berhasil dilakukan dengan menampilkan identitas pegawai serta bukti foto
-![](./img/tes2.jpg)
-7. Proses presensi berhasil dilakukan dan presensi bisa dilakukan kembali dengan menekan tombol "Presensi Ulang"
-8. Untuk keluar dari sistem, kembali ke terminal dan tekan tombol ctrl + C
+2. Jalankan perintah `python app.py`
+3. Jika aplikasi sudah ada tulisan _Running on http://127.0.0.1:5000_, buka browser dan akses `http://localhost:5000` atau `http://127.0.0.1:5000`
+4. Klik tombol presensi untuk menangkap foto presensi
+5. Setelah menekan tombol presensi, maka presensi berhasil dilakukan dengan menampilkan identitas pegawai serta bukti foto
+6. Proses presensi berhasil dilakukan dan presensi bisa dilakukan kembali dengan menekan tombol `Presensi Ulang`
+7. Untuk menghentikan program, kembali ke terminal dan tekan tombol `CTRL + C`
+
+### Menambahkan Data Pegawai Baru
+1. Ketika program berjalan, klik `Pegawai Baru` di browser
+2. Masukan data sesuai dengan kebutuhan yang tertera
+3. Jika semua sudah terisi, klik `Submit Pegawai Baru` untuk menambahkan data pegawai tersebut ke basis data dan model secara otomatis akan dibangun ulang dengan data baru tersebut. Tunggu beberapa saat hingga model selesai dibangun
+4. Jika sudah selesai, maka akan tampil pesan `Model Berhasil Diproses`. Klik `Halaman Presensi` untuk memulai presensi kembali
 
 
 <div id="Model">

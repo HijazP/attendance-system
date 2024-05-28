@@ -48,8 +48,6 @@ INSERT INTO `biodata` (`id_pegawai`, `nama_pegawai`, `divisi_pegawai`, `jabatan_
 ('15', 'face15', 'UI Designer', 'Junior'),
 ('16', 'face16', 'UX Researcher', 'Senior'),
 ('17', 'face17', 'UX Researcher', 'Junior'),
-('18', 'face18', 'DevOps Engineer', 'Senior'),
-('19', 'face19', 'DevOps Engineer', 'Senior'),
 ('2', 'face2', 'Backend Engineer', 'Junior'),
 ('3', 'face3', 'Backend Engineer', 'Intern'),
 ('4', 'face4', 'Pimpinan Perusahaan', 'Chief Executive Officer'),
