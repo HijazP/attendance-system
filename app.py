@@ -47,8 +47,8 @@ def gen_frames():
                 capture=0
 
                 # Menyimpan foto ke direktori 'static'
-                # p = os.path.sep.join(['static', data])
-                # cv2.imwrite(p, frame)
+                p = os.path.sep.join(['static', data])
+                cv2.imwrite(p, frame)
 
                 # Panggil salah satu data 
                 test_image=image.load_img('./static/'+data,target_size=(150, 150))
@@ -93,8 +93,7 @@ def tasks():
             waktu_presensi = now.strftime("%H:%M:%S")
 
             # Membangkitkan data baru
-            # data = "presensi_{}.jpg".format(str(now).replace(":",'.').replace(" ",'_'))
-            data = "WhatsApp Image 2024-05-27 at 21.22.32_faafff32.jpg"
+            data = "presensi_{}.jpg".format(str(now).replace(":",'.').replace(" ",'_'))
 
             capture=1
             time.sleep(1)
@@ -119,8 +118,8 @@ def tasks():
 
         if request.form.get('presensi-ulang') == 'Presensi Ulang':
             # Menghapus foto di direktori 'static'
-            #os.remove('./static/'+data)
-            #data=''
+            os.remove('./static/'+data)
+            data=''
             return render_template('index.html')
 
         if request.form.get('new_data') == 'Pegawai Baru':
@@ -137,12 +136,12 @@ def tasks():
             os.mkdir(test_folder)
             app.config['train_folder'] = train_folder
             app.config['test_folder'] = test_folder
-            nama_sementara = "face"+str(next)
+            nama = request.form['name']
             divisi = request.form['divisi']
             jabatan = request.form['jabatan']
 
             cursor = mysql.connection.cursor()
-            cursor.execute(''' INSERT INTO biodata(id_pegawai, nama_pegawai, divisi_pegawai, jabatan_pegawai) VALUES(%s,%s,%s,%s) ''',(next,nama_sementara,divisi,jabatan))
+            cursor.execute(''' INSERT INTO biodata(id_pegawai, nama_pegawai, divisi_pegawai, jabatan_pegawai) VALUES(%s,%s,%s,%s) ''',(next,nama,divisi,jabatan))
             mysql.connection.commit()
             cursor.close()
 
