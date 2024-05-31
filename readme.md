@@ -43,9 +43,6 @@ Hal yang perlu dipersiapkan:
 3. Jika aplikasi sudah ada tulisan _Running on http://127.0.0.1:5000_, buka browser dan akses `http://localhost:5000` atau `http://127.0.0.1:5000`
 4. Klik tombol presensi untuk menangkap foto presensi
 5. Setelah menekan tombol presensi, maka presensi berhasil dilakukan dengan menampilkan identitas pegawai serta bukti foto
-
-![](./img/Screenshot%202024-05-28%20191149.png)
-
 6. Proses presensi berhasil dilakukan dan presensi bisa dilakukan kembali dengan menekan tombol `Presensi Ulang`
 7. Untuk menghentikan program, kembali ke terminal dan tekan tombol `CTRL + C`
 
