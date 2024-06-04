@@ -136,7 +136,7 @@ def tasks():
             os.mkdir(test_folder)
             app.config['train_folder'] = train_folder
             app.config['test_folder'] = test_folder
-            nama = request.form['name']
+            nama = request.form['nama']
             divisi = request.form['divisi']
             jabatan = request.form['jabatan']
 
